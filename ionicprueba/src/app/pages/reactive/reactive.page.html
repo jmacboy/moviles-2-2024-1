@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>reactive</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="personaForm">
+    <ion-item>
+      <ion-input name="nombres" formControlName="nombres" label="Nombres" labelPlacement="floating"
+        placeholder="Ingrese su nombre"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('required', 'nombres')">
+      <ion-label color="danger">
+        El nombre es requerido
+      </ion-label>
+    </ion-item>
+    <p>Form Status: {{ personaForm.status }}</p>
+    <ion-button type="submit" id="btnForm" expand="block">Guardar</ion-button>
+  </form>
+</ion-content>

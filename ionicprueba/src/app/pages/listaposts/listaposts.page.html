@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>listaposts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list inset="true">
+    <ion-item *ngFor="let post of posts" [routerLink]="['/posts', post.id]">
+      <ion-thumbnail slot="start">
+        <ion-img src="https://ionic-docs-demo-v7.vercel.app/assets/madison.jpg"></ion-img>
+      </ion-thumbnail>
+      <ion-avatar slot="end">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{post.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

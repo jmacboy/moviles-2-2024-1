@@ -1,0 +1,10 @@
+<div *ngIf="post">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+    <div>
+        <h3>Comentarios</h3>
+        <div *ngFor="let comment of comments">
+            <app-commentinfo [comment]="comment"></app-commentinfo>
+        </div>
+    </div>
+</div>
