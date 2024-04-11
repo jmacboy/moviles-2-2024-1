@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="personaForm">
+  <form [formGroup]="personaForm" (ngSubmit)="saveForm()">
     <ion-item>
       <ion-input name="nombres" formControlName="nombres" label="Nombres" labelPlacement="floating"
         placeholder="Ingrese su nombre"></ion-input>
@@ -15,7 +15,54 @@
         El nombre es requerido
       </ion-label>
     </ion-item>
+    <ion-item>
+      <ion-input name="apellidos" formControlName="apellidos" label="Apellidos" labelPlacement="floating"
+        placeholder="Ingrese su apellido"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('required', 'apellidos')">
+      <ion-label color="danger">
+        El apellido es requerido
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input name="ciudad" formControlName="ciudad" label="Ciudad" labelPlacement="floating"
+        placeholder="Ingrese su ciudad"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('required', 'ciudad')">
+      <ion-label color="danger">
+        La ciudad es requerida
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input name="edad" formControlName="edad" label="Edad" labelPlacement="floating" type="number"
+        placeholder="Ingrese su edad"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('required', 'edad')">
+      <ion-label color="danger">
+        La edad es requerida
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('max', 'edad')">
+      <ion-label color="danger">
+        La edad no puede ser mayor a 99
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('min', 'edad')">
+      <ion-label color="danger">
+        La edad no puede ser menor a 1
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input name="fechaNacimiento" type="date" formControlName="fechaNacimiento" label="Fecha de Nacimiento" labelPlacement="floating"
+        placeholder="Ingrese su fecha de nacimiento"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="personaForm.hasError('required', 'fechaNacimiento')">
+      <ion-label color="danger">
+        La fecha de nacimiento es requerida
+      </ion-label>
+    </ion-item>
     <p>Form Status: {{ personaForm.status }}</p>
-    <ion-button type="submit" id="btnForm" expand="block">Guardar</ion-button>
+    <ion-button  [disabled]="!personaForm.valid" type="submit" id="btnForm" 
+      expand="block">Guardar</ion-button>
   </form>
 </ion-content>
