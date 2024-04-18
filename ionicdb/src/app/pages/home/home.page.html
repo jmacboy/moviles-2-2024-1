@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item-sliding *ngFor="let persona of personas">
+      <ion-item [routerLink]="[ '/persona', persona.id ]">
+        <ion-label>{{ persona.nombres }} {{persona.apellidos}}</ion-label>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="danger" (click)="deletePersona(persona.id)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/persona/create">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
