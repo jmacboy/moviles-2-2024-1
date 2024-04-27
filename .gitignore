@@ -1,3 +1,9 @@
 pruebaionic/android/
 *.rar
 ionicdb/android/
+pruebaflutter/ios/
+pruebaflutter/macos/
+pruebaflutter/windows/
+pruebaflutter/linux/
+pruebaflutter/android/
+pruebaflutter/web/
