@@ -28,6 +28,49 @@ class _CalculatorPageState extends State<CalculatorPage> {
     });
   }
 
+  void doOperation() {
+    int secondNumber = 0;
+    if (_result.isNotEmpty) {
+      secondNumber = int.parse(_result);
+    }
+    int operationResult = 0;
+    switch (currentOperation) {
+      case '+':
+        operationResult = firstNumber + secondNumber;
+        break;
+      case '-':
+        operationResult = firstNumber - secondNumber;
+        break;
+      case 'x':
+        operationResult = firstNumber * secondNumber;
+        break;
+      case '/':
+        operationResult = firstNumber ~/ secondNumber;
+        break;
+    }
+    setState(() {
+      if (operationResult == 0) {
+        _result = '';
+      } else {
+        _result = operationResult.toString();
+      }
+    });
+  }
+
+  void clearOne() {
+    setState(() {
+      if (_result.isNotEmpty) {
+        _result = _result.substring(0, _result.length - 1);
+      }
+    });
+  }
+
+  void clearEverything() {
+    setState(() {
+      _result = '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +85,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
               Row(children: [
                 Expanded(
                     child: Text(
-                  _result,
+                  _result.isEmpty ? '0' : _result,
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.right,
                 ))
@@ -56,6 +99,15 @@ class _CalculatorPageState extends State<CalculatorPage> {
   getNumberPanel() {
     return Column(
       children: [
+        Container(
+          margin: const EdgeInsets.only(bottom: 10.0),
+          child: Row(
+            children: [
+              getClearOneButton(),
+              getClearEverythingButton(),
+            ],
+          ),
+        ),
         Container(
           margin: const EdgeInsets.only(bottom: 10.0),
           child: Row(
@@ -94,13 +146,22 @@ class _CalculatorPageState extends State<CalculatorPage> {
             ],
           ),
         ),
-        Row(
-          children: [
-            getOperationButton('+'),
-            getOperationButton('-'),
-            getOperationButton('x'),
-            getOperationButton('/'),
-          ],
+        Container(
+          margin: const EdgeInsets.only(bottom: 10.0),
+          child: Row(
+            children: [
+              getOperationButton('+'),
+              getOperationButton('-'),
+              getOperationButton('x'),
+              getOperationButton('/'),
+            ],
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(bottom: 10.0),
+          child: Row(
+            children: [getEqualsButton()],
+          ),
         )
       ],
     );
@@ -133,6 +194,48 @@ class _CalculatorPageState extends State<CalculatorPage> {
           color: Theme.of(context).colorScheme.primary,
           textColor: const Color.fromRGBO(255, 255, 255, 1),
           child: Text(operation),
+        ),
+      ),
+    );
+  }
+
+  getEqualsButton() {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.only(right: 5.0, left: 5.0),
+        child: MaterialButton(
+          onPressed: doOperation,
+          color: Theme.of(context).colorScheme.primary,
+          textColor: const Color.fromRGBO(255, 255, 255, 1),
+          child: const Text('='),
+        ),
+      ),
+    );
+  }
+
+  getClearOneButton() {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.only(right: 5.0, left: 5.0),
+        child: MaterialButton(
+          onPressed: clearOne,
+          color: Theme.of(context).colorScheme.primary,
+          textColor: const Color.fromRGBO(255, 255, 255, 1),
+          child: const Text('C'),
+        ),
+      ),
+    );
+  }
+
+  getClearEverythingButton() {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.only(right: 5.0, left: 5.0),
+        child: MaterialButton(
+          onPressed: clearEverything,
+          color: Theme.of(context).colorScheme.primary,
+          textColor: const Color.fromRGBO(255, 255, 255, 1),
+          child: const Text('CE'),
         ),
       ),
     );
