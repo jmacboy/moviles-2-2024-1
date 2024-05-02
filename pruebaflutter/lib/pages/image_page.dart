@@ -10,8 +10,10 @@ class ImagePage extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text('Image Page'),
         ),
-        body: Center(
-          child: Image.network('https://picsum.photos/250?image=9')
-        ));
+        body:
+            Center(child: 
+              Image.network('https://picsum.photos/250?image=9')
+            )
+        );
   }
 }

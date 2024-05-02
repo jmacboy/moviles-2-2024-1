@@ -70,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: FloatingActionButton(
                   onPressed: _resetCounter,
                   tooltip: 'Reset',
+                  heroTag: "reset",
                   child: const Icon(Icons.refresh)),
             ),
             const Spacer(),
@@ -79,11 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 FloatingActionButton(
                   onPressed: _incrementCounter,
                   tooltip: 'Increment',
+                  heroTag: "increment",
                   child: const Icon(Icons.add),
                 ),
                 FloatingActionButton(
                   onPressed: _decrementCounter,
                   tooltip: 'Decrement',
+                  heroTag: "decrement",
                   child: const Icon(Icons.remove),
                 ),
               ],
