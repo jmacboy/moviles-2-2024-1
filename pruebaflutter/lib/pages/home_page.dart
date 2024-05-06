@@ -61,6 +61,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, '/calculator');
               },
             ),
+            ElevatedButton(
+              child: const Text('Ir a la página de lista'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/lista');
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Ir a la página de lista con builder'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/listabuilder');
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Ir a la página de cards'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/card');
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Ir a la página de form'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/form');
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Ir a la página de form con validación'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/formvalidado');
+              },
+            )
           ]),
         ),
         floatingActionButton: Row(

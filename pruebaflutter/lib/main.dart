@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pruebaflutter/pages/calculator_page.dart';
+import 'package:pruebaflutter/pages/card_page.dart';
+import 'package:pruebaflutter/pages/form_page.dart';
+import 'package:pruebaflutter/pages/formvalidado_page.dart';
 import 'package:pruebaflutter/pages/home_page.dart';
 import 'package:pruebaflutter/pages/image_page.dart';
+import 'package:pruebaflutter/pages/lista_page.dart';
+import 'package:pruebaflutter/pages/listbuilder_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +29,11 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
         '/image': (context) => const ImagePage(),
         '/calculator': (context) => const CalculatorPage(),
+        '/lista': (context) => const ListaPage(),
+        '/listabuilder': (context) => const ListBuilderPage(),
+        '/card': (context) => const CardPage(),
+        '/form': (context) => const FormPage(),
+        '/formvalidado':(context) => const FormValidadoPage(),
       },
     );
   }
