@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class CalendarInput extends StatefulWidget {
   final TextEditingController controller;
-  const CalendarInput({super.key, required this.controller});
+  final DateTime initialDate;
+  const CalendarInput(
+      {super.key, required this.controller, required this.initialDate});
 
   @override
   State<CalendarInput> createState() => _CalendarInputState();
@@ -10,9 +12,10 @@ class CalendarInput extends StatefulWidget {
 
 class _CalendarInputState extends State<CalendarInput> {
   void callDatePicker() {
+    print(widget.initialDate);
     showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: widget.initialDate,
       firstDate: DateTime(1900),
       lastDate: DateTime(2100),
     ).then((value) {
@@ -20,6 +23,11 @@ class _CalendarInputState extends State<CalendarInput> {
         widget.controller.text = value.toString().split(' ')[0];
       }
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override

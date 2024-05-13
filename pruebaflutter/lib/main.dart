@@ -8,6 +8,8 @@ import 'package:pruebaflutter/pages/image_page.dart';
 import 'package:pruebaflutter/pages/lista_page.dart';
 import 'package:pruebaflutter/pages/listaposts_page.dart';
 import 'package:pruebaflutter/pages/listbuilder_page.dart';
+import 'package:pruebaflutter/pages/persona_detail_page.dart';
+import 'package:pruebaflutter/pages/persona_list_page.dart';
 import 'package:pruebaflutter/pages/postdetail_page.dart';
 
 void main() {
@@ -27,17 +29,30 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
-      routes: {
-        '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
-        '/image': (context) => const ImagePage(),
-        '/calculator': (context) => const CalculatorPage(),
-        '/lista': (context) => const ListaPage(),
-        '/listabuilder': (context) => const ListBuilderPage(),
-        '/card': (context) => const CardPage(),
-        '/form': (context) => const FormPage(),
-        '/formvalidado':(context) => const FormValidadoPage(),
-        '/postlist':(context) => const ListaPostsPage(),
-        '/postdetail':(context) => const PostDetailPage(),
+      onGenerateRoute: (RouteSettings settings) {
+        var arguments = settings.arguments;
+        var routes = <String, WidgetBuilder>{
+          '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+          '/image': (context) => const ImagePage(),
+          '/calculator': (context) => const CalculatorPage(),
+          '/lista': (context) => const ListaPage(),
+          '/listabuilder': (context) => const ListBuilderPage(),
+          '/card': (context) => const CardPage(),
+          '/form': (context) => const FormPage(),
+          '/formvalidado': (context) => const FormValidadoPage(),
+          '/postlist': (context) => const ListaPostsPage(),
+          '/postdetail': (context) => const PostDetailPage(),
+          '/personas': (context) => const PersonaListPage(),
+          '/personadetail': (context) {
+            if (arguments is int) {
+              return PersonaDetailPage(personaId: arguments);
+            } else {
+              return const PersonaDetailPage(personaId: null);
+            }
+          }
+        };
+        WidgetBuilder? builder = routes[settings.name];
+        return MaterialPageRoute(builder: (ctx) => builder!(ctx));
       },
     );
   }

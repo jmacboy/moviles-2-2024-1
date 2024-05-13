@@ -72,6 +72,7 @@ class _FormValidadoPageState extends State<FormValidadoPage> {
           ),
           CalendarInput(
             controller: _dateController,
+            initialDate: DateTime.now(),
           ),
           getButtonConDialog()
         ],

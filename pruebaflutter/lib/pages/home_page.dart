@@ -97,6 +97,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, '/postlist');
               },
             ),
+            ElevatedButton(
+              child: const Text('Ir a la página de lista de personas'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/personas');
+              },
+            ),
           ]),
         ),
         floatingActionButton: Row(
