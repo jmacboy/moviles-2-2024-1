@@ -6,7 +6,9 @@ import 'package:pruebaflutter/pages/formvalidado_page.dart';
 import 'package:pruebaflutter/pages/home_page.dart';
 import 'package:pruebaflutter/pages/image_page.dart';
 import 'package:pruebaflutter/pages/lista_page.dart';
+import 'package:pruebaflutter/pages/listaposts_page.dart';
 import 'package:pruebaflutter/pages/listbuilder_page.dart';
+import 'package:pruebaflutter/pages/postdetail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
         '/card': (context) => const CardPage(),
         '/form': (context) => const FormPage(),
         '/formvalidado':(context) => const FormValidadoPage(),
+        '/postlist':(context) => const ListaPostsPage(),
+        '/postdetail':(context) => const PostDetailPage(),
       },
     );
   }

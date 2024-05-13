@@ -90,7 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, '/formvalidado');
               },
-            )
+            ),
+            ElevatedButton(
+              child: const Text('Ir a la página de lista de posts'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/postlist');
+              },
+            ),
           ]),
         ),
         floatingActionButton: Row(
