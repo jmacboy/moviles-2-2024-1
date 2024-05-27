@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pruebaflutter/pages/calculator_page.dart';
 import 'package:pruebaflutter/pages/card_page.dart';
@@ -11,8 +14,15 @@ import 'package:pruebaflutter/pages/listbuilder_page.dart';
 import 'package:pruebaflutter/pages/persona_detail_page.dart';
 import 'package:pruebaflutter/pages/persona_list_page.dart';
 import 'package:pruebaflutter/pages/postdetail_page.dart';
+import 'package:pruebaflutter/pages/productolist_page.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-void main() {
+Future main() async {
+  if (Platform.isWindows || Platform.isLinux) {
+    // Initialize FFI
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
   runApp(const MyApp());
 }
 
@@ -49,7 +59,8 @@ class MyApp extends StatelessWidget {
             } else {
               return const PersonaDetailPage(personaId: null);
             }
-          }
+          },
+          '/productos': (context) => const ProductoListPage(),
         };
         WidgetBuilder? builder = routes[settings.name];
         return MaterialPageRoute(builder: (ctx) => builder!(ctx));

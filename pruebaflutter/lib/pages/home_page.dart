@@ -103,6 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, '/personas');
               },
             ),
+            ElevatedButton(
+              child: const Text('Ir a la página de productos'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/productos');
+              },
+            ),
           ]),
         ),
         floatingActionButton: Row(
