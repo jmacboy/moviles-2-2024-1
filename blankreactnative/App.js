@@ -1,29 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TextInput } from "react-native";
-import React, { useState } from "react";
-
+import React from "react";
+import Calculadora from "./Calculadora";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FormNombre from "./FormNombre";
+import Main from "./Main";
 const App = () => {
-    const [nombre, setNombre] = useState("");
+    const Stack = createNativeStackNavigator();
     return (
-        <View style={styles.container}>
-            <TextInput onChangeText={setNombre} value={nombre} style={styles.textInput} />
-            <Text>Tu Nombre es: {nombre}</Text>
-            <StatusBar style="auto" />
-        </View>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Main">
+                <Stack.Screen name="Calculadora" component={Calculadora} />
+                <Stack.Screen name="FormNombre" component={FormNombre} />
+                <Stack.Screen name="Main" component={Main} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        padding: 20,
-    },
-    textInput: {
-        height: 40,
-        borderColor: "gray",
-        borderWidth: 1,
-    },
-});
 
 export default App;
