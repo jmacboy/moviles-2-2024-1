@@ -16,6 +16,18 @@ const Main = ({ navigation }) => {
                     navigation.navigate("FormNombre");
                 }}
             />
+            <Button
+                title="Ir a Lista"
+                onPress={() => {
+                    navigation.navigate("Lista");
+                }}
+            />
+            <Button
+                title="Ir a Lista de Posts"
+                onPress={() => {
+                    navigation.navigate("PostList");
+                }}
+            />
         </View>
     );
 };
