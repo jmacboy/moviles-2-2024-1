@@ -7,10 +7,10 @@ const Calculadora = () => {
     const addNumber = (number) => () => {
         setResultado(resultado + number);
     };
-    const startOperation = (operation) => () => {
+    const startOperation = (currentOp) => () => {
         setNumAnterior(parseInt(resultado));
         setResultado("");
-        setOperation(operation);
+        setOperation(currentOp);
     };
     const calculate = () => {
         const numActual = parseInt(resultado);
