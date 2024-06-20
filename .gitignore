@@ -7,3 +7,10 @@ pruebaflutter/windows/
 pruebaflutter/linux/
 pruebaflutter/android/
 pruebaflutter/web/
+socketioserver/node_modules/
+fluttersockets/windows/
+fluttersockets/macos/
+fluttersockets/linux/
+fluttersockets/ios/
+fluttersockets/web/
+fluttersockets/android/

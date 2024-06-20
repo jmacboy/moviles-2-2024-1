@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let chat of chats">
+      <ion-label>
+        <b>{{chat.name}}:</b><br />
+        {{ chat.msg }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <div>
+    <ion-item>
+      <ion-input [(ngModel)]="msg" placeholder="Enter message"></ion-input>
+      <ion-button (click)="sendMsg()">Send</ion-button>
+    </ion-item>
+  </div>
+</ion-content>
