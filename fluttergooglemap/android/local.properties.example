@@ -1,0 +1,2 @@
+# Solo aumentar esta variable a su local.properties actual
+flutter.minSdkVersion=20
